@@ -1,9 +1,9 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
 
 const Shop = () => {
   return(
     <div>
-      This is the shop
+      <h2>This is the shop</h2>
     </div>
   )
 }
@@ -11,15 +11,19 @@ const Shop = () => {
 const HomePage = () => {
   return(
     <div>
-      This is the landing page
+      <h2>This is the landing page</h2>
     </div>
   )
 }
 
-const Header = () => {
+const Navigation = () => {
   return(
     <div>
-      This is the header
+      <nav>
+      <span><Link to="/">Home </Link></span>
+      <span><Link to="/shop">Shop</Link></span>
+      </nav>
+      <Outlet />
     </div>
   )
 }
@@ -35,11 +39,13 @@ const Footer = () => {
 const App = () => {
   return (
     <div className="App">
-      <Header />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/shop" element={<Shop />} />
+          <Route path="/" element={<Navigation />} >
+            <Route index element={<HomePage />} />
+            <Route path="shop" element={<Shop />}/>
+            <Route path="*" element="404" />
+          </Route>
         </Routes>
       </BrowserRouter>
       <Footer />
