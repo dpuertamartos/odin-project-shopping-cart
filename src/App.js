@@ -1,40 +1,9 @@
-import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+import Footer from "./components/Footer.js"
+import Navigation from "./components/Header.js"
+import HomePage from "./components/Homepage.js"
+import Shop from "./components/Shop.js"
 
-const Shop = () => {
-  return(
-    <div>
-      <h2>This is the shop</h2>
-    </div>
-  )
-}
-
-const HomePage = () => {
-  return(
-    <div>
-      <h2>This is the landing page</h2>
-    </div>
-  )
-}
-
-const Navigation = () => {
-  return(
-    <div>
-      <nav>
-      <span><Link to="/">Home </Link></span>
-      <span><Link to="/shop">Shop</Link></span>
-      </nav>
-      <Outlet />
-    </div>
-  )
-}
-
-const Footer = () => {
-  return(
-    <div>
-      This is the footer
-    </div>
-  )
-}
 
 const App = () => {
   return (
